@@ -1,0 +1,7 @@
+# THYMELEAF (ThymeleafAutoConfiguration)
+spring:
+  thymeleaf:
+    cache: true
+    check-template: true
+    content-type: text/html
+    enabled: true
