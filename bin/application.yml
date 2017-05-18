@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:db2://0.0.0.0:50000/SAMPLE
+    username: db2inst1
+    password: db2inst1-pwd
+    
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.DB2Dialect
