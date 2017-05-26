@@ -27,5 +27,9 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-jdbc')
+	compile files("/Users/Jesus/Documents/Training/db2java.zip")
+	compile files("/Users/Jesus/Documents/Training/db2jcc_license_cisuz.jar")
+	compile files("/Users/Jesus/Documents/Training/db2jcc_license_cu.jar")
+	compile files("/Users/Jesus/Documents/Training/db2jcc.jar")
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
