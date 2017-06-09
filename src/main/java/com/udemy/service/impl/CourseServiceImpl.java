@@ -1,5 +1,6 @@
 package com.udemy.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -8,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import com.udemy.converter.CourseConverter;
 import com.udemy.entity.Course;
+import com.udemy.model.CourseModel;
 import com.udemy.repository.CourseJpaRepository;
 import com.udemy.service.CourseService;
 
@@ -22,9 +25,13 @@ public class CourseServiceImpl implements CourseService {
 	private CourseJpaRepository courseJpaRepository;
 
 	@Override
-	public List<Course> listAllCoursees() {
+	public List<CourseModel> listAllCoursees() {
 		LOG.info("Call: " + "listAllCourses()");
-		return courseJpaRepository.findAll();
+		List<CourseModel> courses = new ArrayList<CourseModel>();
+		for (Course course : courseJpaRepository.findAll()) {
+			courses.add((new CourseConverter().entity2Model(course)));
+		}
+		return courses;
 	}
 
 	@Override
@@ -37,6 +44,13 @@ public class CourseServiceImpl implements CourseService {
 	public int removeCourse(int id) {
 		courseJpaRepository.delete(id);
 		return 0; 
+	}
+	
+	@Override
+	public int removeCourse(Course course){
+		Course courseTemp = courseJpaRepository.findByNameOrPrice(course.getName(), course.getPrice());
+		removeCourse(courseTemp.getId());
+		return 0;
 	}
 
 	@Override

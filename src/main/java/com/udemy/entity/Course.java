@@ -70,20 +70,20 @@ public class Course {
 		this.description = description;
 	}
 
-	public int getprice() {
-		return price;
-	}
-
-	public void setprice(int price) {
-		this.price = price;
-	}
-
 	public int getHours() {
 		return hours;
 	}
 
 	public void setHours(int hours) {
 		this.hours = hours;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 	@Override
