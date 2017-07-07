@@ -1,21 +1,19 @@
 package com.udemy.repository;
 
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
-import org.springframework.stereotype.Repository;
-
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.impl.JPAQuery;
+
 import com.udemy.entity.Course;
 import com.udemy.entity.QCourse;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import org.springframework.stereotype.Repository;
+
 @Repository("queryDSLExampleRepo")
-public class QueryDSLExampleRepo {
-	
+public class QueryDslExampleRepo {
+
 	private QCourse qCourse = QCourse.course;
 	
 	@PersistenceContext
@@ -37,9 +35,7 @@ public class QueryDSLExampleRepo {
 		
 		Course course1 = query.select(qCourse).from(qCourse).where(predicateBuilder).fetchOne();
 		
-		return course1;
-		
+		return course1;	
 	}
-	
-	
+
 }
