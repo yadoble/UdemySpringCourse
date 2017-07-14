@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:db2://0.0.0.0:50000/SAMPLE
+    url: jdbc:db2://192.168.99.100:50000/SAMPLE
     username: db2inst1
     password: db2inst1-pwd  
   jpa:
